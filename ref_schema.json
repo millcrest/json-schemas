@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "definitions": {
         "bands": {
             "title": "Band Types",
@@ -13,14 +13,21 @@
             "title": "VRT filename",
             "description": "VRT file location",
             "type": "string",
-            "examples": [".vrt"],
+            "examples": [
+                ".vrt"
+            ],
             "format": "uri-reference"
         },
         "raster_file": {
             "title": "Raster filename",
             "description": "Raster file location",
             "type": "string",
-            "examples": [".vrt", ".tif", ".tiff", ".icechunk"],
+            "examples": [
+                ".vrt",
+                ".tif",
+                ".tiff",
+                ".icechunk"
+            ],
             "format": "uri-reference"
         },
         "raster": {
@@ -33,7 +40,10 @@
                     "$ref": "#/definitions/raster_file"
                 }
             },
-            "required": ["bands", "raster_file"]
+            "required": [
+                "bands",
+                "raster_file"
+            ]
         },
         "rasters": {
             "title": "Rasters",
@@ -95,7 +105,9 @@
                     "$ref": "#/definitions/bands"
                 },
                 "optional_bands": {
-                    "$ref": "#/definitions/optional_bands"
+                    "title": "Optional Band Types",
+                    "description": "Optional set of bands in raster",
+                    "$ref": "#/definitions/bands"
                 },
                 "train_mean": {
                     "title": "Train Mean",
@@ -145,14 +157,18 @@
                         "title": "Imagery File",
                         "description": "Imagery File",
                         "type": "string",
-                        "examples": [".npz"],
+                        "examples": [
+                            ".npz"
+                        ],
                         "format": "uri-reference"
                     },
                     "mask_file": {
                         "title": "Mask File",
                         "description": "Mask File",
                         "type": "string",
-                        "examples": [".npz"],
+                        "examples": [
+                            ".npz"
+                        ],
                         "format": "uri-reference"
                     },
                     "count": {
@@ -164,7 +180,12 @@
                         "$ref": "#/definitions/bands"
                     }
                 },
-                "required": ["imagery_file", "mask_file", "count", "bands"]
+                "required": [
+                    "imagery_file",
+                    "mask_file",
+                    "count",
+                    "bands"
+                ]
             }
         },
         "generation_options": {
@@ -179,9 +200,22 @@
                     "default": false
                 }
             }
+        },
+        "bbox_grid": {
+            "title": "BBox Grid",
+            "description": "File containing a grid of bounding boxes to process",
+            "type": "string",
+            "examples": [
+                ".fgb"
+            ],
+            "format": "uri-reference"
+        },
+        "bbox_index": {
+            "title": "BBox Index",
+            "description": "Index of the polygon to use from the bounding box grid",
+            "type": "integer"
         }
     },
-
     "type": "object",
     "properties": {}
 }
