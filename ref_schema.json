@@ -38,6 +38,16 @@
                 },
                 "raster_file": {
                     "$ref": "#/definitions/raster_file"
+                },
+                "group": {
+                    "title": "Icechunk Group",
+                    "description": "Capture group in the icechunk repository",
+                    "type": "string"
+                },
+                "snapshot_id": {
+                    "title": "Icechunk Snapshot ID",
+                    "description": "Reference to the exact snapshot to use from the icechunk repository",
+                    "type": "string"
                 }
             },
             "required": [
